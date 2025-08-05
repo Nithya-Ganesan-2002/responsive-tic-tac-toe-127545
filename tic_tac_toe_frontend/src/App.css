@@ -53,6 +53,236 @@
   position: relative;
 }
 
+/* ==============================
+   Tic Tac Toe Custom Styling
+   ============================== */
+
+:root {
+  --ttt-primary: #1976D2;
+  --ttt-secondary: #424242;
+  --ttt-accent: #FFC107;
+  --ttt-bg: #fff;
+  --ttt-board-size-desktop: 330px;
+  --ttt-board-size-mobile: 95vw;
+}
+
+.app-tic-tac-toe {
+  min-height: 100vh;
+  background: var(--ttt-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ttt-container {
+  margin-top: 42px;
+  margin-bottom: 32px;
+  padding: 16px;
+  max-width: 420px;
+  width: 100%;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 14px rgba(25, 118, 210, 0.08), 0 1px 2px rgba(66,66,66,0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ttt-title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin: 0 0 10px 0;
+  color: var(--ttt-primary);
+  text-shadow: 0 2px 6px rgba(25, 118, 210, 0.06);
+}
+
+.status-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.ttt-status {
+  margin-bottom: 7px;
+  font-size: 1.12rem;
+  font-weight: 600;
+}
+
+.status-winner {
+  color: var(--ttt-accent);
+  text-shadow: 0 1px 4px #ffecb3a6;
+}
+
+.status-draw {
+  color: var(--ttt-secondary);
+}
+.status-next {
+  font-weight: 600;
+}
+
+.ttt-scoreboard {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.ttt-score {
+  font-weight: 700;
+  font-size: 1.1rem;
+  background-color: #f5f5fa;
+  padding: 2px 10px;
+  border-radius: 7px;
+  color: var(--ttt-primary);
+}
+
+.ttt-score-o {
+  color: var(--ttt-accent);
+}
+.ttt-score-x {
+  color: var(--ttt-primary);
+}
+
+.ttt-score-separator {
+  font-size: 1.1rem;
+  color: #aab1b4;
+}
+
+.ttt-board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 16px 0;
+  width: var(--ttt-board-size-desktop);
+  height: var(--ttt-board-size-desktop);
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(25, 118, 210, 0.07);
+  border: 2.5px solid var(--ttt-secondary);
+}
+
+.ttt-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 33.333%;
+}
+
+.ttt-square {
+  width: 33.333%;
+  height: 110px;
+  border: 1.5px solid var(--ttt-primary);
+  background: #fafcff;
+  color: var(--ttt-secondary);
+  font-size: 2.7rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.17s, background 0.17s, border 0.19s;
+  outline: none;
+  border-radius: 2px;
+  margin: 0;
+  user-select: none;
+}
+
+.ttt-square:last-child {
+  border-right: 0;
+}
+
+.ttt-row:last-child .ttt-square {
+  border-bottom: 0;
+}
+
+.ttt-square:hover:not([disabled]) {
+  background: #e5e5ef;
+}
+
+.ttt-square-highlight {
+  border: 2.4px solid var(--ttt-accent);
+  color: var(--ttt-accent);
+  background: #fff9e4;
+  box-shadow: 0 0 7px #FFC10788;
+  z-index: 1;
+}
+
+.ttt-reset-btn {
+  margin: 19px 0 0 0;
+  padding: 11px 33px;
+  border-radius: 8px;
+  border: none;
+  background: var(--ttt-primary);
+  color: #fff;
+  font-size: 1.03rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.07);
+  transition: background 0.15s, box-shadow 0.15s, transform 0.12s;
+  outline: none;
+}
+
+.ttt-reset-btn:hover, .ttt-reset-btn:focus-visible {
+  background: var(--ttt-accent);
+  color: var(--ttt-secondary);
+  transform: translateY(-1px) scale(1.04);
+  box-shadow: 0 4px 12px #ffc10744;
+}
+
+.ttt-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.98rem;
+  color: #888;
+  margin-bottom: 18px;
+  width: 100%;
+  min-height: 32px;
+  letter-spacing: 0.04em;
+  opacity: 0.93;
+}
+
+@media (max-width: 520px) {
+  .ttt-container {
+    margin-top: 24px;
+    padding: 8px;
+    border-radius: 9px;
+  }
+  .ttt-title {
+    font-size: 1.39rem;
+  }
+  .ttt-status,
+  .ttt-scoreboard {
+    font-size: 1.04rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .ttt-board {
+    width: var(--ttt-board-size-mobile);
+    height: var(--ttt-board-size-mobile);
+    min-width: 230px;
+    min-height: 230px;
+    max-width: calc(100vw - 9vw);
+    max-height: calc(100vw - 9vw);
+  }
+  .ttt-row {
+    height: 33.333%;
+  }
+  .ttt-square {
+    height: 20vw;
+    font-size: 2rem;
+    padding: 0;
+  }
+}
+
 .App-link {
   color: var(--text-secondary);
   transition: color 0.3s ease;
